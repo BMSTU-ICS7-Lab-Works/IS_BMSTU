@@ -27,11 +27,9 @@ def encrypt(word, rotor1, rotor2, rotor3):
 
 symbols = [chr(i) for i in range(65, 91)]
 
-#for el in symbols:
- #   print(el, ord(el), sep='/')
 rotor1_copy = rotor1 = symbols[:]
-rotor2 = symbols[:]
-rotor3 = symbols[:]
+rotor2_copy = rotor2 = symbols[:]
+rotor3_copy = rotor3 = symbols[:]
 random.shuffle(rotor1)
 random.shuffle(rotor2)
 random.shuffle(rotor3)
@@ -40,11 +38,17 @@ random.shuffle(rotor3)
 reflector = symbols[:]
 random.shuffle(reflector)
 
-word = input('Введите слово: ')
-res = encrypt(word, rotor1, rotor2, rotor3)
-print(res)
-print(encrypt(res, rotor1_copy, rotor2, rotor3))
-
+with open('text.txt', 'r',  encoding='utf-8') as f:
+    text = f.read()
+    print("Исходный текст:\n")
+    print(text)
+    print("\nЗашифрованный текст:\n")
+    with open('text_encrypt.txt', 'w',  encoding='utf-8') as ef:
+        textEncrypt = encrypt(text, rotor1, rotor2, rotor3)
+        ef.write(textEncrypt)
+        print(textEncrypt)
+        print("\nРасшифрованный текст:\n")
+        print(encrypt(textEncrypt, rotor1_copy, rotor2_copy, rotor3_copy))
     
 
 
