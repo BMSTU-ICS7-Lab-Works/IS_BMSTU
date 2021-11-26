@@ -74,12 +74,7 @@ f_res = input()
 text = encrypt_file(f_in, f_out, rotor1, rotor2, rotor3)
 print("\nЗашифрованный текст:\n")
 print(text)
-textEncrypt = encrypt_file(f_out, f_res, rotor1, rotor2, rotor3)
+textEncrypt = encrypt_file(f_out, f_res, rotor1_copy, rotor2_copy, rotor3_copy)
 
 print("\nРасшифрованный текст:\n")
 print(textEncrypt)
-    
-
-
-
-
